@@ -161,24 +161,26 @@ export default function RigJBDBuilder() {
             <button onClick={() => deleteZone(color, z.id)} className="absolute -top-2 -right-2 bg-white text-xs text-red-500 rounded">❌</button>
           </Rnd>
         )))}
-        {arrows.map(a => (
-          <Rnd key={`a-${a.id}`} size={{ width: a.w, height: a.h }} position={{ x: a.x, y: a.y }}
-            onDragStop={(e, d) => updateArrow(a.id, { x: d.x, y: d.y })}
-            onResizeStop={(e, dir, ref, delta, pos) => updateArrow(a.id, { w: parseInt(ref.style.width), h: parseInt(ref.style.height), ...pos })}
-            style={{ position: 'absolute', overflow: 'visible' }}
-          >
-            <div style={{ width: '100%', height: '100%', transform: `rotate(${a.rotate}deg)`, transformOrigin: 'center center', backgroundColor: 'blue', borderRadius: '4px', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'move' }}>
-              ↔
-            </div>
-            <div className="absolute top-full mt-1 left-1/2 -translate-x-1/2 flex gap-1">
-              <button onClick={() => updateArrow(a.id, { rotate: 0 })} className="text-xs bg-gray-300 px-1 rounded">↔</button>
-              <button onClick={() => updateArrow(a.id, { rotate: 90 })} className="text-xs bg-gray-300 px-1 rounded">↕</button>
-              <button onClick={() => updateArrow(a.id, { rotate: 45 })} className="text-xs bg-gray-300 px-1 rounded">⤺</button>
-              <button onClick={() => updateArrow(a.id, { rotate: 315 })} className="text-xs bg-gray-300 px-1 rounded">⤻</button>
-              <button onClick={() => deleteArrow(a.id)} className="text-xs bg-red-300 px-1 rounded">❌</button>
-            </div>
-          </Rnd>
-        )))}
+        
+{arrows.map(a => (
+  <Rnd key={`a-${a.id}`} size={{ width: a.w, height: a.h }} position={{ x: a.x, y: a.y }}
+    onDragStop={(e, d) => updateArrow(a.id, { x: d.x, y: d.y })}
+    onResizeStop={(e, dir, ref, delta, pos) => updateArrow(a.id, { w: parseInt(ref.style.width), h: parseInt(ref.style.height), ...pos })}
+    style={{ position: 'absolute', overflow: 'visible' }}
+  >
+    <div style={{ width: '100%', height: '100%', transform: `rotate(${a.rotate}deg)`, transformOrigin: 'center center', backgroundColor: 'blue', borderRadius: '4px', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'move' }}>
+      ↔
+    </div>
+    <div className="absolute top-full mt-1 left-1/2 -translate-x-1/2 flex gap-1">
+      <button onClick={() => updateArrow(a.id, { rotate: 0 })} className="text-xs bg-gray-300 px-1 rounded">↔</button>
+      <button onClick={() => updateArrow(a.id, { rotate: 90 })} className="text-xs bg-gray-300 px-1 rounded">↕</button>
+      <button onClick={() => updateArrow(a.id, { rotate: 45 })} className="text-xs bg-gray-300 px-1 rounded">⤺</button>
+      <button onClick={() => updateArrow(a.id, { rotate: 315 })} className="text-xs bg-gray-300 px-1 rounded">⤻</button>
+      <button onClick={() => deleteArrow(a.id)} className="text-xs bg-red-300 px-1 rounded">❌</button>
+    </div>
+  </Rnd>
+))}
+}
       </div>
       <div className="flex space-x-2 items-end mb-2">
         <div className="flex flex-col w-full">
