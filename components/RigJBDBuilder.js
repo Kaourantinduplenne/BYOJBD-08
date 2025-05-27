@@ -180,8 +180,7 @@ export default function RigJBDBuilder() {
     </div>
   </Rnd>
 ))}
-}
-      </div>
+</div>
       <div className="flex space-x-2 items-end mb-2">
         <div className="flex flex-col w-full">
           <label>Task Step</label>
